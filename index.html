@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Simulator.css">
+    <script type="text/javascript" src="sin_plot.js"></script>
+	<script type="text/javascript" src="harmonic_design.js"></script>
+	<script type="text/javascript" src="Vm_change.js"></script> 
+	<script type="text/javascript" src="vmax_change.js"></script>
+    <script type="text/javascript" src="fr.js"></script>
+    <script type="text/javascript" src="allwf.js"></script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Simulator</title>
+  </head>
+
+  <body data-demo-id="animation"; style=onload="init()">
+    <div class="bg-image "></div>
+    <div class="wholebody">
+        <div class="header_heading">
+            <dl>
+                <dt class="headingtext">To construct a square wave with the help of fundamental frequency and its harmonic component</dt>
+            </dl>
+        </div>
+        <!-- After Header whole content -->
+        <div class="row no-gutters">
+            <div class="col-md-5 no-gutters">
+    			<div class="leftside">
+    				<div class="description container">
+    					<div class="dropdown">
+                            <p class="sub_heading">INSTRUCTION</p>
+                            <div class="dropdown-content">
+                                <ol type="1">
+                                    <li>Set the peak value V<sub>p</sub> of fundamental component of sine wave.</li>
+                                    <li>Set the order of harmonics to see the effect how the waveform is moving toward square wave.</li>
+                                    <li>Set the Frequency f<sub>o</sub> of fundamental component.</li>
+                                    <li>Set the V<sub>max</sub> range to zoom in or zoom out to waveform along y-axis.</li>
+                                    <li>Set the T<sub>max</sub> range to zoom in or zoom out to waveform along x-axis.</li>
+                                    <li>Change the value of total point for the plot for precise waveform.</li>
+                                    <li>Click on Plot Square Wave button.</li>
+                                    <li>Click on Draw Harmonics button to see the waveform of different harmonics components upto 9<sup>th</sup> order.</li>
+                                    <li>Click on Plot Show Equation button to see the Fourier Series Expansion.</li>
+                                    <li>Click on Print button to save or print result.</li>
+                                </ol> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <div class="cntrlhead">
+                            <p class="sub_heading">CONTROLS</p>
+                        </div>
+                        <div class="table">
+                            <table class="table table-borderless table-hover">                    
+                                <tbody>
+                                <form name="myForm" method = "get" style="width:500px; font-size: medium; font-family:Arial;">
+                                    <tr>
+                                        <th>V<sub>m</sub> (V) Peak Voltage</th>
+                                        <th><input type="range" orient="vertical" id="Vp" min="5" max="25" step='5' value="5" oninput="draw()" enabled=true;></th>
+                                        <th><input type="text" id="Voltage_amplitude" placeholder="Voltage_amplitude(5V)" readonly ><label id="Voltage_amplitude">V</label></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Order of harmonics</th>
+                                        <th><input type="range" orient="vertical" id="HA" min="1" max="55" step='2' value="1" oninput="draw()" enabled=true></th>
+                                        <th><input type="text" id="HAN" placeholder="harmonic order (1)" readonly >  <label id="HAN">Order</label></th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th>f<sub>o</sub> (Hz) Sine frequency</th>
+                                        <th><input type="range" orient="vertical" id="fo" min="20" max="100" step='5' value="20" oninput="draw()" enabled=true;></th>
+                                        <th><input type="text" id="Frequency" placeholder="Frequency (20 Hz)" readonly >  <label id="Frequency">Hz</label></th>
+                                    </tr>                           
+                                    <tr>
+                                        <th>V<sub>max</sub> (V) for plot</th>
+                                        <th><input type="range" orient="vertical" id="Vmax" min="12" max="52" step='10' value="12"  oninput="Vrange()" enabled=true;></th>
+                                        <th><input type="text" id="V_max" placeholder="Range of y-axis at least 2Vp (12)" readonly >  <label id="V_max">V</label></th>
+                                    </tr>                           
+                                    <tr>
+                                        <th>T<sub>max</sub> (s) for plot</th>
+                                        <th><input type="range" orient="vertical" id="Tmax" min="0.1" max="1" step='0.1' value="0.1"  oninput="Trange()" enabled=true;></th>
+                                        <th><input type="text" id="T_max" placeholder="Range of x-axis (0.1)" readonly >  <label id="T_max">sec</label></th>
+                                    </tr>
+                                    <tr>
+                                    <th>Total points for plot:</th>
+                                    <th ><input type="text" name="N" size="10" value="1000"></th>
+                                    <th><input type="button" value="Plot Square Wave" onclick="draw()"></th>
+                                    
+                                </tr>
+                                </form>
+                                </tbody>
+                            </table>
+                        </div>              
+                    </div>
+                </div>
+    		</div>
+            <!--###############rightside########################################################################################################### -->
+
+            <div class="col-md-7 no-gutters">
+    			<div class="rightside">
+    				<div class="circuitsection">
+                        <div class="ckt">
+                            <p class="sub_heading mx-2"> Different Frequency Component Waveforms</p>
+                            <input style="position: absolute; top: 3px; right: 2px;" type="button" class="btn btn-outline-primary" value="Draw Harmonics" onclick="draw_harmonic()">
+                        </div>
+                        <div class="cktlite">
+                            <canvas id="canvs" class="canvss" width="450" height="450"></canvas>
+                        </div>
+                    </div>
+    			</div>
+    		</div>
+
+            <!-- ###############rightside########################################################################################################### -->
+
+            
+            <br>
+            <div class="row blogwave">
+            	<div class="col-md-8">
+                    <div class="bottomright">
+                        <div class="waveformh">
+                            <p class="sub_heading">Square Wave Construction</p>
+                        </div>
+                        <div class="waveform">
+                            <div class="V">V<sub>o</sub></div>
+                            <div id="out" class="outt"><br><br><br>
+                                <canvas id="canv_s" class="canv_ss" width="900" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-4">
+                    <div class="bottomleft">
+                        <div class="blogboxh">
+                            <p class="sub_heading">Fourier series</p>
+                            <input style="position: absolute; top: 15px; right: 10px;" type="button" class="btn btn-outline-primary" value="Show Equation" onclick="drawfr();">
+                        </div>
+                        <div class="blogbox">
+                            <canvas id="canv_frr" width="400" height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="col-md-12 mt-2 no-gutters">
+                <div class="bottom">
+                    <div class="output_graph">
+                        <div class="grph">
+                            <p class="sub_heading mx-2"> All waveforms</p>
+                            <input style="position: absolute; top: 3px; right: 2px;" type="button" class="btn btn-outline-primary" value="Draw waveforms" onclick="drawallwf()">
+                        </div>
+                        <div class="Vall">V<sub>o</sub></div>
+                        <div class="vallb">
+                            <canvas id="canv_allwf" class="canv_allwff" width="900" height="200">
+                        </div>
+                    </div>
+                </div>
+            
+            <br>
+            <br>
+    	</div>
+        <br>
+        <br>
+        <!-- Mr. Nobody -->
+	</div>
+</body>
+</html>

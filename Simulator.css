@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap');
+
+body,html{
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image 
+{
+  background-image: url("top-lab-sm-01.jpg");
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  height: 100vh; 
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  background-size: 100% 100%;
+}
+
+
+.wholebody
+{
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.4);
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    padding-top: 0px;
+    text-align: center;
+    overflow: auto;
+}
+
+.header_heading
+{
+    background-color: inherit;
+}
+
+.heading
+{
+    background-color: inherit;
+}
+
+.headingtext
+{
+    text-align: center;
+    font-size: 30px;
+    background: linear-gradient(to right, #30CFD0 0%, #f2f7f3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sub_heading
+{
+    text-align: left;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+    padding: 5px;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cktimg{
+    margin-top: 25px;
+    margin-left: 50px;
+
+}
+.leftside, .rightside{
+    height: 585px;
+    width: 100%
+}
+
+.bottom
+{
+    height: 320px;
+    width: 100%;
+    background-color: inherit;
+}
+
+.leftside{
+    background-color: inherit;
+
+}
+
+.rightside{
+    background-color: inherit;
+}
+.sub_heading{
+    text-align: left;
+    padding-right:150px;
+    color: white;
+    margin-top: 10px;"
+}
+.description{
+    position: absolute;
+    font-size: 16px;
+    background-color: #414E49;
+    color: white;
+    width: 96%;
+    font-weight: bold;
+    height: 50px;
+}
+.dropdown-content 
+{
+    display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   border:2px solid #3333ff;;
+   color: black;
+   min-width: 450px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   padding: 12px 16px;
+   z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+
+}
+.controls{
+    position: absolute;
+    font-size: 16px;
+    background-color: inherit;
+    top: 90px;
+    width: 96%;
+    height: 490px;
+    font-weight: bold;
+    border: 2px solid #414E49;
+}
+
+.cntrlhead
+{
+    position: absolute;
+    font-size: 16px;
+    background-color: #414E49;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    height: 50px;
+}
+
+.table{
+    background-color: inherit;
+    color: white;
+    width: 100%;
+    height: 430px;
+    left: 0px;
+    top: 50px;
+    overflow-y: auto;
+    position: absolute;
+}
+.circuitsection {
+    position: absolute;
+    width: 100%;
+    height: 580px;
+    background-color: #4B806B;
+}
+.ckt{
+    position: absolute;
+    font-size: 16px;
+    top: 0px;
+    right: 0px;
+    height: 50px;
+    background-color: #414E49;
+    width: 100%;
+    font-weight: bold;
+}
+
+.cktlite
+{
+    font-size: 16px;
+    top: 50px;
+    height: 91%;
+    margin-left: 1px;
+    background-color: #36444C;
+    width: 100%;
+    font-weight: bold;
+    position: absolute;
+}
+
+.canvss
+{
+    font-size: 5px;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    background-color: white;
+}
+
+.canv_ss
+{
+    font-size: 5px;
+    width: 100%;
+    height: 120%;
+    font-weight: bold;
+    background-color: white;
+    left: 5%;
+    top: 25%;
+    position: absolute;
+}
+
+.output_values{
+    position: absolute;
+    border: 2px solid #3333ff;
+    margin-left: 10px;
+    width: 530px;
+    height: 180px;
+    top: 400px;
+
+}
+.out_put{
+    position: absolute;
+    font-size: 16px;
+    top: 0px;
+    right: 0px;
+    height: 50px;
+    background-color: #3333ff;
+    margin-left: 10px;
+    width: 528px;
+    font-weight: bold;
+}
+.output_graph{
+    position: absolute;
+    border: 2px solid #414E49;
+    background-color: #36444C;
+    width: 100%;
+    height: auto;
+    top: 12px;
+
+}
+.out_heading{
+    text-align:center;
+    color:white;
+    margin-left: 0px;
+
+}
+.grph{
+    position: absolute;
+    font-size: 16px;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    background-color: #414E49;
+    width: 100%;
+    font-weight: bold;
+}
+
+.outt
+{
+    height: 100%;
+    width: 92%;
+    top: 1%;
+    position: absolute;
+}
+.V{
+    margin-left: 10px;
+    margin-top: 50px;
+    position: absolute;
+    color: blue;
+}
+
+#canv_s
+{
+    width: 90%;
+    height: 60%;
+    font-size: 5px;
+    position: absolute;"
+}
+.VT{
+    margin-top: 25px;
+    margin-left: 20px;
+
+}
+.i{
+    margin-top: 40px;
+    margin-left: 20px;
+
+}
+/*.btn_RL{
+    float: left;
+    margin-left: 20px;
+    margin-top: 140px;
+    width: 150px;
+    
+
+}
+.btn_reload{
+    float: right;
+    margin-right: 20px;
+    margin-top: 140px;
+    width: 150px;
+    
+}*/
+.btn_RL{
+   
+    
+    width: 210px;
+    height: 40px;
+    font-size: 20px;
+    padding-bottom: 5px;
+    float: left;
+    padding-top: 2px;
+}
+.btn_reload{
+   
+    margin-right: 22px; 
+    font-size: 20px;
+    width: 210px;
+    height: 40px;
+    padding-top: 2px
+    padding-bottom:5px;
+    float: right;
+    
+
+}
+
+
+.blogwave
+{
+    width: 100%;
+    height: auto;
+    background-color: inherit;
+}
+
+.bottomleft
+{
+    width: 100%;
+    margin-left: 10px;
+    background-color: #414E49;
+    
+}
+
+.bottomright
+{
+    width: 100%;
+    background-color: #414E49;
+}
+
+.blogboxh
+{
+    width: 100%;
+    height: 30px;
+    background-color: inherit;
+}
+
+.blogbox
+{
+    width: 100%;
+    height: 250px;
+    margin-top: 18px;
+    background-color: black;
+}
+
+.vallb
+{
+    width: 100%;
+    height: 250px;
+    margin-top: 18px;
+    background-color: black;
+}
+
+.canv_allwff
+{
+    font-size: 5px;
+    width: 90%;
+    height: 80%;
+    font-weight: bold;
+    background-color: black;
+    left: 6%;
+    top: 19%;
+    position: absolute;
+}
+.waveformh
+{
+    width: 100%;
+    height: 30px;
+    background-color: inherit;
+}
+
+.waveform
+{
+    width: 100%;
+    height: 250px;
+    margin-top: 18px;
+    background-color: white;
+}
+
+.Vall
+{
+    margin-left: 10px;
+    margin-top: 75px;
+    position: absolute;
+}
